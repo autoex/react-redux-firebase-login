@@ -5,6 +5,7 @@ import {Route, Routes, Navigate} from 'react-router-dom'
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import Container from "@mui/material/Container";
+import  "./firebaseConf";
 
 const App = () => {
     return (
