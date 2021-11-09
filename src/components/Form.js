@@ -24,7 +24,6 @@ const Form = ({btnText, submitHandle}) => {
                 required
                 fullWidth
                 margin='normal'
-                id="outlined-required"
                 label="Email"
                 value={email}
                 onChange={(e=>setEmail(e.target.value))}
@@ -35,7 +34,6 @@ const Form = ({btnText, submitHandle}) => {
                 required
                 fullWidth
                 margin='normal'
-                id="outlined-required"
                 label="Password"
                 type='password'
                 value={password}

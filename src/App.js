@@ -1,13 +1,13 @@
 import React, {useEffect} from 'react';
 import './App.css'
 import Home from "./pages/Home";
-import {Route, Routes, Navigate} from 'react-router-dom'
+import {Route, Routes} from 'react-router-dom'
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import Container from "@mui/material/Container";
-import  "./firebaseConf";
+import "./firebaseConf";
 import {useDispatch, useSelector} from "react-redux";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
+import {getAuth, onAuthStateChanged} from "firebase/auth";
 import {setUser} from "./store/slices/userSlice";
 
 const App = () => {
@@ -24,7 +24,8 @@ const App = () => {
                 console.log(user)
                 dispatch(setUser( {
                     email: user.email,
-                    id: uid
+                    id: uid,
+                    token: user.accessToken
 
                 }))
 
@@ -39,7 +40,7 @@ const App = () => {
         <Container sx={{marginY: 2}}>
             {email}
             <Routes>
-                <Route path='/' element={email ? <Home email={email}/> :<Navigate  to='/login'/>}/>
+                <Route path='/' element={<Home/>}/>
                 <Route path='/login' element={<Login/>}/>
                 <Route path='/signup' element={<SignUp/>}/>
             </Routes>
